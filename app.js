@@ -39,7 +39,7 @@ function render() {
     // Colores según cercanía
     const hoursLeft = (new Date(t.due) - Date.now()) / (1000 * 60 * 60);
 // Enviar notificaciones según el tiempo restante
-if (hoursLeft <= 24 && !t.notified24) {
+if (hoursLeft <= 23 && !t.notified24) {
   // Notificación urgente
   sendNotification("Tarea urgente", "La tarea '" + t.title + "' vence en menos de 24 horas.");
   t.notified24 = true;
@@ -47,7 +47,7 @@ if (hoursLeft <= 24 && !t.notified24) {
   // Notificación próxima
   sendNotification("Tarea próxima", "La tarea '" + t.title + "' vence en menos de 48 horas.");
   t.notified48 = true;
-} else if (hoursLeft > 48 && hoursLeft <= 192 && !t.notified8d) {
+} else if (hoursLeft > 49 && hoursLeft <= 192 && !t.notified8d) {
   // Notificación próxima semana
   sendNotification("Tarea próxima semana", "La tarea '" + t.title + "' vence en menos de 8 días.");
   t.notified8d = true;
@@ -108,4 +108,5 @@ render();
 // Actualizar automáticamente cada minuto
 
 setInterval(render, 60000);
+
 
