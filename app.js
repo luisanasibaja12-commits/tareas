@@ -49,7 +49,7 @@ if (hoursLeft <= 23 && !t.notified24) {
   t.notified48 = true;
 } else if (hoursLeft > 49 && hoursLeft <= 192 && !t.notified8d) {
   // Notificación próxima semana
-  sendNotification("Tarea próxima semana", "La tarea '" + t.title + "' vence en menos de 8 días.");
+  sendNotification("Tarea", "La tarea '" + t.title + "' vence en menos de 8 días.");
   t.notified8d = true;
 }
 
@@ -108,5 +108,6 @@ render();
 // Actualizar automáticamente cada minuto
 
 setInterval(render, 60000);
+
 
 
